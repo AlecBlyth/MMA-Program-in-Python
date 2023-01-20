@@ -1,0 +1,24 @@
+1000,"Sebastian","Ackermann","Male","Germany","Brandenburgische, Talheim","Boxing",39,105,178,90,75,89,65,70,21,5,True
+1001,"Richard","Phelps","Male","Belgium","Tiegemberg, Tongrinne","Jiu-Jitsu",22,100,180,89,80,84,70,80,15,8,False
+1002,"Luis Barros","Azevedo","Male","Brazil",Francisco, Boaventura","Brazilian Jiu-Jitsu",27,87,175,87,78,90,80,74,17,3,True
+1003,"Roch","Casgrain","Male","France","Paris","Judo",30,86,182,88,76,91,75,76,16,7,False
+1004,"Alec","Blyth","Male","United Kingdom","Kirkcaldy, Fife","Kickboxing",29,80,168,95,90,95,80,85,50,0,True
+1005,"Neil","Shaw","Male","United Kingdom","Glasgow","Boxing",25,78,167,89,89,85,75,73,13,2,False
+1006,"Peter","Millar","Male","United States","Anaheim, California","Karate",30,75,169,84,79,84,70,78,28,6,True
+1007,"Finnur","Hjörleifsson","Male","Iceland","Reykjavík","Karate",37,73,170,86,81,81,87,89,21,3,False
+1008,"Riley","Franklin","Male","United States","Miami, Florida","Taekwondo",28,68,168,85,82,82,80,80,13,8,True
+1009,"Guang","Tseng","Male","China","Beijing","Karate",26,69,171,86,83,81,83,83,10,3,False
+1010,"Jonas","Friedmann","Male","United States","Denver, Colorado","Kickboxing",29,64,165,84,85,80,79,91,18,8,True
+1011,"Khasucha","Desheriyev","Male","Ukraine","Kiev","Wrestling",35,62,168,83,87,79,90,87,14,6,False
+1012,"Lukáš","Hlaváč","Male","Croatia","Zagreb","Kickboxing",20,58,168,82,89,78,87,89,19,2,True
+1013,"Ronald","Diaz","Male","United States","Los Angeles, California","Karate",34,58,165,87,90,76,83,75,12,4,False
+1014,"John","Morris","Male","United States","Fargo, North Dakota","Kickboxing",31,52,165,80,90,76,76,74,15,7,True
+1015,"Troy","Ryan","Male","United States","Las Vegas, Nevada","Karate",27,55,166,79,87,77,83,71,11,4,False
+1016,"Júlia","Souza","Female","United States","New York","Kickboxing",21,63,172,74,90,79,73,72,12,2,True
+1017,"Mieczysława","Dudek","Female","Poland","Warsaw","Wrestling",24,62,168,73,87,78,69,73,4,3,False
+1018,"Elena","Toscano","Female","Italy","Rome","Kickboxing",30,59,164,73,87,74,81,75,14,6,True
+1019,"Maja","Miletić","Female","United States","Eden Prairie, Minnesota","Karate",27,58,163,75,89,75,72,73,9,4,False
+1020,"Abby","Patterson","Female","United Kingdom","Liverpool","Kickboxing",26,56,167,74,79,78,67,76,12,2,True
+1021,"Hannah","Willis","Female","United States","Boston, Massachusetts","Kickboxing",28,53,162,72,77,76,60,83,5,7,False
+1022,"Katherine","Fleming","Female","United States","Stafford, Texas","Karate",24,50,160,72,80,73,69,80,17,3,True
+1023,"Naomi","Benson","Female","United States","Waitsburg, Washington","Kickboxing",26,49,159,70,81,74,51,50,9,9,False
