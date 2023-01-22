@@ -155,6 +155,7 @@ def fight_function(fighter_list, fighter_one, fighter_two):
     # Fight Variables
 
     fight_over = False
+    roundsPassed = 1
 
     if fighter_list[fighter_one].get_weight() >= 93 or fighter_list[fighter_one].get_weight() <= 120 and fighter_list[
         fighter_one].get_gender() == "Male":
@@ -202,30 +203,24 @@ def fight_function(fighter_list, fighter_one, fighter_two):
         rounds = 3
         print("Normal Bout")
 
-    while fighter_one_hp > 0 and fighter_two_hp > 0 and rounds != 0 and fight_over != True:  # While fighters still
+    while fighter_one_hp > 0 and fighter_two_hp > 0 and roundsPassed != rounds or roundsPassed < rounds and fight_over != True:  # While fighters still
         # have health and fight is not over
 
-        match game_maths(0.10):  # 0.01% chance of submission takedown
+        match game_maths(0.10):  # 0.10% chance of submission takedown
             case True:
-                if fighter_one_sub_offence > fighter_two_sub_defence:  # if the selected player's offence is more
-                    # than defence then
+                if fighter_one_sub_offence > fighter_two_sub_defence:  # if the selected player's offence is more than defence then
                     match game_maths(0.25):  # 0.25% chance of take down
                         case True:
-                            print(fighter_one_name + " takes down and attempts to submit: " + fighter_two_name)
-                            fighter_two_hp = fighter_two_hp - fighter_one_sub_offence  # Second fighter's health is
-                            # reduced by first fighter's submission offence
+                            print(fighter_one_name + " takes down " + fighter_two_name)
+                            fighter_two_hp = fighter_two_hp - fighter_one_sub_offence  # Second fighter's health is reduced by first fighter's submission offence
                 else:
-                    match game_maths(0.10):  # If Fighter two's defence is higher
-                        # than fighter one's sub offence, then takedown
-                        # attempt has a 0.10% chance of success
+                    match game_maths(
+                        0.10):  # If Fighter two's defence is higher than fighter one's sub offence, then takedown attempt has a 0.10% chance of success
                         case True:
-                            print(fighter_one_name + " takes down and attempts to submit: " + fighter_two_name)
-                            fighter_two_hp = fighter_two_hp - fighter_one_sub_offence
-                            # Second fighter's
-                            # health is reduced
-                            # by first fighter's submission offence
+                            print(fighter_one_name + " takes downs " + fighter_two_name)
+                            fighter_two_hp = fighter_two_hp - fighter_one_sub_offence  # Second fighter's health is reduced by first fighter's submission offence
+
                 if fighter_two_hp <= 0 and fighter_two_champion:
-                    fight_over = True
                     print(fighter_two_name + "taps out! \n")
                     fighter_list.append(fighter_list[fighter_two].set_champion(False))
                     fighter_list.append(fighter_list[fighter_one].set_champion(True))
@@ -233,40 +228,36 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                     fighter_list.append(fighter_list[fighter_one].set_wins(fighter_one_wins + 1))
                     print(
                         "Ladies and Gentlemen, referee Garlic Herb has called a stop to this contest \n at four "
-                        "minutes, four seconds \n of round number ", rounds, "\n declaring the winner \n by "
-                                                                             "submission \n ANNNND NEW AFC "
-                                                                             "Undisputed " + weightclass +
-                                                                             " champion of the world! " + fighter_one_name)  # Inspired by recent champion as of late 2022 ;)
-                elif fighter_two_hp <= 0 and fighter_one_champion:
-                    print(fighter_two_name + " taps out! \n")
+                        "minutes, four seconds \n of round number ", roundsPassed, "\n declaring the winner \n by "
+                                                                                   "submission \n ANNNND NEW AFC "
+                                                                                   "Undisputed " + weightclass +
+                                                                                   " champion of the world! " + fighter_one_name)  # Inspired by recent champion as of late 2022 ;)
                     fight_over = True
+                    break
+                if fighter_two_hp <= 0 and fighter_one_champion == true:
+                    print(fighter_two_name + " taps out! \n")
                     fighter_list.append(fighter_list[fighter_two].set_losses(fighter_two_losses + 1))
                     fighter_list.append(fighter_list[fighter_one].set_wins(fighter_one_wins + 1))
                     print(
                         "Ladies and Gentlemen, referee Garlic Herb has called a stop to this contest \n at two minutes, thirty-five seconds of round number ",
-                        rounds, "\n declaring the winner \n by submission \n" + fighter_one_name)
+                        roundsPassed, "\n declaring the winner \n by submission \n" + fighter_one_name)
+                    fight_over = True
                     break
-                menu(fighter_list)
                 # game_menu(fighter_list)
 
             case False:
-                if fighter_two_sub_offence > fighter_one_sub_defence:  # if the selected player's offence is more
-                    # than defence then
+                if fighter_two_sub_offence > fighter_one_sub_defence:  # if the selected player's offence is more than defence then
                     match game_maths(0.25):  # 0.25% chance of take down
                         case True:
                             print(fighter_two_name + " takes down and attempts to submit: " + fighter_one_name)
-                            fighter_one_hp = fighter_one_hp - fighter_two_sub_offence  # Second fighter's health is
-                            # reduced by first fighter's submission offence
+                            fighter_one_hp = fighter_one_hp - fighter_two_sub_offence  # Second fighter's health is reduced by first fighter's submission offence
                 else:
-                    match game_maths(0.10):  # If Fighter one's defence is higher
-                        # than fighter two's sub offence, then takedown
-                        # attempt has a 0.10% chance of success
+                    match game_maths(
+                        0.10):  # If Fighter one's defence is higher than fighter two's sub offence, then takedown attempt has a 0.10% chance of success
                         case True:
                             print(fighter_two_name + " takes down and attempts to submit: " + fighter_one_name)
-                            fighter_one_hp = fighter_one_hp - fighter_two_sub_offence
-                            # Second fighter's
-                            # health is reduced
-                            # by first fighter's submission offence
+                            fighter_one_hp = fighter_one_hp - fighter_two_sub_offence  # Second fighter's health is reduced by first fighter's submission offence
+
                 if fighter_one_hp <= 0 and fighter_one_champion:
                     print(fighter_one_name + " taps out! \n")
                     fight_over = True
@@ -276,10 +267,10 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                     fighter_list.append(fighter_list[fighter_two].set_wins(fighter_two_wins + 1))
                     print(
                         "Ladies and Gentlemen, referee Garlic Herb has called a stop to this contest \n at four "
-                        "minutes, four seconds \n of round number ", rounds, "\n declaring the winner \n by "
-                                                                             "submission \n ANNNND NEW AFC "
-                                                                             "Undisputed " + weightclass +
-                                                                             " champion of the world! " + fighter_two_name)  # Inspired by recent champion as of late 2022 ;)
+                        "minutes, four seconds \n of round number ", roundsPassed, "\n declaring the winner \n by "
+                                                                                   "submission \n ANNNND NEW AFC "
+                                                                                   "Undisputed " + weightclass +
+                                                                                   " champion of the world! " + fighter_two_name)  # Inspired by recent champion as of late 2022 ;)
                 elif fighter_one_hp <= 0 and fighter_two_champion:
                     print(fighter_one_name + " taps out! \n")
                     fight_over = True
@@ -287,9 +278,10 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                     fighter_list.append(fighter_list[fighter_two].set_wins(fighter_two_wins + 1))
                     print(
                         "Ladies and Gentlemen, referee Garlic Herb has called a stop to this contest \n at one minutes, thirty-five seconds of round number ",
-                        rounds, "\n declaring the winner \n by submission \n" + fighter_two_name)
+                        roundsPassed, "\n declaring the winner \n by submission \n" + fighter_two_name)
 
                 # game_menu(fighter_list)
+
         while game_maths(
                 0.25 + fighter_one_speed) == True and fight_over != True:  # While fight is not over, if true fighter one hits opponent
             print(fighter_one_name + " hits " + fighter_two_name + "\n")
@@ -302,6 +294,7 @@ def fight_function(fighter_list, fighter_one, fighter_two):
             if game_maths(
                     0.25 + fighter_two_speed) == False and fight_over == False:  # If second fighter's chance is false then both have missed
                 print("Both fighters have failed to land a hit! \n")
+
             if fighter_one_hp <= 0 and fight_over != True and fighter_one_champion:
                 print(fighter_one_name + " is knocked out! \n")
                 fight_over = True
@@ -311,10 +304,10 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                 fighter_list.append(fighter_list[fighter_two].set_wins(fighter_two_wins + 1))
                 print(
                     "Ladies and Gentlemen, referee Garlic Herb has called a stop to this contest \n at two "
-                    "minutes, thirty seconds \n of round number ", rounds, "\n declaring the winner \n by "
-                                                                           "Knockout \n ANNNND NEW AFC "
-                                                                           "Undisputed " + weightclass +
-                                                                           " champion of the world! " + fighter_two_name)
+                    "minutes, thirty seconds \n of round number ", roundsPassed, "\n declaring the winner \n by "
+                                                                                 "Knockout... \n ANNNND NEW AFC "
+                                                                                 "Undisputed " + weightclass +
+                                                                                 " champion of the world! " + fighter_two_name)
                 break
                 menu(fighter_list)
 
@@ -325,7 +318,7 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                 fighter_list.append(fighter_list[fighter_two].set_wins(fighter_two_wins + 1))
                 print(
                     "Ladies and Gentlemen, referee Garlic Herb has called a stop to this contest \n at one minute, thirty-five seconds of round number ",
-                    rounds, "\n declaring the winner \n by Knockout \n" + fighter_two_name)
+                    roundsPassed, "\n declaring the winner \n by knockout... \n" + fighter_two_name)
 
             if fighter_two_hp <= 0 and fight_over != True and fighter_two_champion:
                 print(fighter_two_name + " is knocked out! \n")
@@ -336,18 +329,54 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                 fighter_list.append(fighter_list[fighter_two].set_losses(fighter_two_losses + 1))
                 print(
                     "Ladies and Gentlemen, referee Garlic Herb has called a stop to this contest \n at two "
-                    "minutes, thirty seconds \n of round number ", rounds, "\n declaring the winner \n by "
-                                                                           "Knockout \n ANNNND NEW AFC "
-                                                                           "Undisputed " + weightclass +
-                                                                           " champion of the world! " + fighter_one_name)
+                    "minutes, thirty seconds \n of round number ", roundsPassed, "\n declaring the winner \n by "
+                                                                                 "Knockout... \n ANNNND NEW AFC "
+                                                                                 "Undisputed " + weightclass +
+                                                                                 " champion of the world! " + fighter_one_name)
             elif fighter_two_hp <= 0 and fighter_one_champion:
-                print(fighter_two_name + " taps out! \n")
+                print(fighter_two_name + " is knocked out! \n")
                 fight_over = True
                 fighter_list.append(fighter_list[fighter_two].set_losses(fighter_two_losses + 1))
                 fighter_list.append(fighter_list[fighter_one].set_wins(fighter_one_wins + 1))
                 print(
                     "Ladies and Gentlemen, referee Garlic Herb has called a stop to this contest \n at one minute, thirty-five seconds of round number ",
-                    rounds, "\n declaring the winner \n by submission \n" + fighter_one_name)
+                    roundsPassed, "\n declaring the winner \n by knockout... \n" + fighter_one_name)
+
+        roundsPassed = roundsPassed + 1
+
+        if roundsPassed == rounds and fight_over != True:
+            if fighter_two_hp - fighter_two_endurance < fighter_one_hp - fighter_one_endurance:
+                print("INSERT LINE FROM FIGHT... by winner via unanimous decision ", fighter_one_name)
+                fighter_list.append(fighter_list[fighter_two].set_losses(fighter_two_losses + 1))
+                fighter_list.append(fighter_list[fighter_one].set_wins(fighter_one_wins + 1))
+                fight_over = True
+            elif fighter_one_hp - fighter_one_endurance < fighter_two_hp - fighter_two_endurance:
+                print("INSERT LINE FROM FIGHT... by winner via unanimous decision ", fighter_two_name)
+                fighter_list.append(fighter_list[fighter_one].set_losses(fighter_one_losses + 1))
+                fighter_list.append(fighter_list[fighter_two].set_wins(fighter_two_wins + 1))
+                fight_over = True
+            elif fighter_one_hp - fighter_one_endurance == fighter_two_hp - fighter_two_endurance:
+                print("INSERT LINE FROM FIGHT...  The Judges have scored this fight a draw!")
+                # fighter_list.append(fighter_list[fighter_two].set_losses(fighter_two_losses + 1)) ADD DRAWS / NO CONTEST
+                # fighter_list.append(fighter_list[fighter_one].set_wins(fighter_one_wins + 1))
+                fight_over = True
+
+        if roundsPassed == rounds and fight_over != True and fighter_one_champion:
+            if fighter_two_hp - fighter_two_endurance < fighter_one_hp - fighter_one_endurance:
+                print("INSERT LINE FROM FIGHT... by winner via unanimous decision ", fighter_one_name)
+                fighter_list.append(fighter_list[fighter_two].set_losses(fighter_two_losses + 1))
+                fighter_list.append(fighter_list[fighter_one].set_wins(fighter_one_wins + 1))
+                fight_over = True
+            elif fighter_one_hp - fighter_one_endurance < fighter_two_hp - fighter_two_endurance:
+                print("INSERT LINE FROM FIGHT... by winner via unanimous decision ", fighter_two_name)
+                fighter_list.append(fighter_list[fighter_one].set_losses(fighter_one_losses + 1))
+                fighter_list.append(fighter_list[fighter_two].set_wins(fighter_two_wins + 1))
+                fighter_list.append(fighter_list[fighter_one].set_champion(False))
+                fighter_list.append(fighter_list[fighter_two].set_champion(True))
+                fight_over = True
+            elif fighter_one_hp - fighter_one_endurance == fighter_two_hp - fighter_two_endurance:
+                print("INSERT LINE FROM FIGHT...  The Judges have scored this fight a draw!")
+                fight_over = True
 
 
 # Main Functions
