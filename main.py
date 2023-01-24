@@ -265,7 +265,6 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                             fighter_two_hp = fighter_two_hp - fighter_one_sub_offence
 
                 if fighter_two_hp <= 0 and fighter_two_champion:
-
                     print(fighter_two_name + "taps out! \n")
 
                     fighter_list.append(fighter_list[fighter_two].set_champion(False))
@@ -291,7 +290,6 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                     break
 
                 if fighter_two_hp <= 0 and fighter_one_champion:
-
                     print(fighter_two_name + " taps out! \n")
 
                     fighter_list.append(fighter_list[fighter_two].set_losses(fighter_two_losses + 1))
@@ -315,7 +313,6 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                     break
 
                 if fighter_two_hp <= 0 and not fighter_one_champion and not fighter_two_champion:
-
                     print(fighter_two_name + " taps out! \n")
 
                     fighter_list.append(fighter_list[fighter_two].set_losses(fighter_two_losses + 1))
@@ -399,7 +396,6 @@ def fight_function(fighter_list, fighter_one, fighter_two):
                     break
 
                 if fighter_one_hp <= 0 and not fighter_one_champion and not fighter_two_champion:
-
                     print(fighter_two_name + " taps out! \n")
 
                     fighter_list.append(fighter_list[fighter_one].set_losses(fighter_one_losses + 1))
@@ -766,7 +762,6 @@ def main():
 
 
 def menu(fighter_list):
-
     print("\n|==========================================================|\n|                   BunnyCorp MMA Game     "
           "                |\n|==========================================================|\n|     1. Add Fighters     "
           "                                 |\n|     2. View Fighters                                     |\n|     3. "
@@ -783,20 +778,140 @@ def menu(fighter_list):
             print("|==================== Create a Fighter ====================|")
             first_name = input("\n --- Insert your fighter's first name. --- \n")
             second_name = input("\n --- Insert your fighter's last name. --- \n")
-            gender = input("\n --- Insert your fighter's gender. --- \n")
+
+            while True:
+                gender = input("\n --- Insert your fighter's gender. --- \n")
+                gender = gender.capitalize()
+                print(gender)
+                try:
+                    gender = str(gender)
+                except:
+                    print("Invalid!")
+                if gender.isdigit():
+                    print("\nEnter non numeric input.\n")
+                    continue
+                if gender != 'Male' and gender != 'Female':
+                    print("Please enter valid input")
+                    continue
+                break
+
             nation = input("\n --- Insert your fighter's home country. --- \n")
             fightingOut = input("\n --- Insert your fighter's city. --- \n")
             style = input("\n --- Insert your fighter's fighting style. --- \n")
-            age = input("\n --- Insert your fighter's age. --- \n")
-            weight = input("\n --- Insert your fighter's weight in kg. --- \n")
-            height = input("\n --- Insert your fighter's height in cm. --- \n")
-            # validate inputs
+
+            while True:
+                age = input("\n --- Insert your fighter's age. --- \n")
+                try:
+                    age = int(age)
+                except:
+                    print("\nEnter numeric digits.\n")
+                    continue
+                if age < 17 or age > 50:
+                    print("\nToo young or old, please enter an age between 17 and 50\n")
+                    continue
+                break
+
+            while True:
+                weight = input("\n --- Insert your fighter's weight in kg. --- \n")
+                try:
+                    weight = int(weight)
+                except:
+                    print("\nEnter numeric digits.\n")
+                    continue
+                if weight < 1:
+                    print("\nPlease enter a positive value\n")
+                    continue
+                break
+
+            while True:
+                height = input("\n --- Insert your fighter's height in cm. --- \n")
+                try:
+                    height = int(height)
+                except:
+                    print("\nEnter numeric digits.\n")
+                    continue
+                if height < 1:
+                    print("\nPlease enter a positive value\n")
+                    continue
+                break
+            new_fighter = Fighter(last_id, first_name, second_name, gender, nation, fightingOut, style, age, weight,
+                                  height, 30, 30, 30, 30, 30, 0, 0, 0, False)
+            fighter_list.append(new_fighter)
+            menu(fighter_list)
+
         case '2':
             print("VIEW FIGHTER")
+
+            for obj in fighter_list:
+                print("\n|========================= Fighter ========================|\nFighter Name:")
+
+                if obj.get_weight() >= 93 and obj.get_weight() <= 120 and obj.get_gender() == "Male":
+                    weightclass = "Heavyweight"
+                elif 84 <= obj.get_weight() <= 92 and obj.get_gender() == "Male":
+                    weightclass = "Light Heavyweight"
+                elif 77 <= obj.get_weight() <= 83 and obj.get_gender() == "Male":
+                    weightclass = "Middleweight"
+                elif 70 <= obj.get_weight() <= 76 and obj.get_gender() == "Male":
+                    weightclass = "Welterweight"
+                elif 66 <= obj.get_weight() <= 69 and obj.get_gender() == "Male":
+                    weightclass = "Lightweight"
+                elif 61 <= obj.get_weight() <= 65 and obj.get_gender() == "Male":
+                    weightclass = "Featherweight"
+                elif 57 <= obj.get_weight() <= 60 and obj.get_gender() == "Male":
+                    weightclass = "Bantamweight"
+                elif 52 <= obj.get_weight() <= 56 and obj.get_gender() == "Male":
+                    weightclass = "Flyweight"
+                elif 61 <= obj.get_weight() <= 66 and obj.get_gender() == "Female":
+                    weightclass = "Woman's Featherweight"
+                elif 57 <= obj.get_weight() <= 60 and obj.get_gender() == "Female":
+                    weightclass = "Woman's Bantamweight"
+                elif 52 <= obj.get_weight() <= 56 and obj.get_gender() == "Female":
+                    weightclass = "Woman's Flyweight"
+                elif 0 <= obj.get_weight() <= 51 and obj.get_gender() == "Female":
+                    weightclass = "Woman's Strawweight"
+
+                if obj.get_champion() == True:
+                    status = weightclass + " champion"
+                else:
+                    status = "None"
+                print(obj.get_name(), "\nFrom: ", obj.get_nation(), "\nFighting out of: ", obj.get_fighting_out(),
+                      "\nFight Style: ", obj.get_style(), "\nAge: ", obj.get_age(), "\nWeight: ", obj.get_weight(),
+                      "kg", "\nHeight: ", obj.get_height(), "cm", "\nStrength: ", obj.get_strength(), "\nSpeed: ",
+                      obj.get_speed(), "\nEndurance: ", obj.get_endurance(), "\nTakedown Defence: ",
+                      obj.get_sub_defence(), "\nSubmission Offence: ", obj.get_sub_offence(), "\nWins: ",
+                      obj.get_wins(), "\nLosses: ", obj.get_losses(), "\nNo Contests: ", obj.get_no_contest(),
+                      "\nTitles: ", status)
+
+                menu(fighter_list)
+
         case '3':
-            print("PLAY GAME")
+            game_menu(fighter_list)
         case '0':
             exit(0)
+
+
+def game_menu(fighter_list):
+    print(
+        '\n|==========================================================|\n|'
+        '                   BunnyCorp MMA Game                     |\n'
+        '|==========================================================|\n|'
+        '     1. Pick Fighter                                      |\n|'
+        '     2. Train Fighters                                    |\n|'
+        '     3. Fight                                             |\n|'
+        '     4. Main Menu                                         |\n'
+        '|==========================================================|\n')
+
+    choice = input("\nPlease select an option.\n")
+
+    match choice:
+        case '1':
+            print("Pick Fighter")
+        case '2':
+            print("Train")
+        case '3':
+            print("Fight")
+        case '4':
+            menu(fighter_list)
 
 
 main()
