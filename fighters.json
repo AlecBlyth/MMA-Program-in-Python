@@ -19,6 +19,7 @@
 	"won": 21,
 	"lost": 5,
 	"noContest": 0,
+	"weightclass": "Heavyweight",
 	"champion": true
 },
 {
@@ -40,6 +41,7 @@
 	"won": 15,
 	"lost": 8,
 	"noContest": 0,
+	"weightclass": "Heavyweight",
 	"champion": false
 },
 {
@@ -61,6 +63,7 @@
 	"won": 17,
 	"lost": 3,
 	"noContest": 0,
+	"weightclass": "Light Heavyweight",
 	"champion": true
 },
 {
@@ -82,6 +85,7 @@
 	"won": 16,
 	"lost": 7,
 	"noContest": 0,
+	"weightclass": "Light Heavyweight",
 	"champion": false
 },
 {
@@ -103,7 +107,8 @@
 	"won": 50,
 	"lost": 0,
 	"noContest": 0,
-	"champion": true
+	"weightclass": "Middleweight",
+	"champion": false
 },
 {
 	"ID": 1005,
@@ -124,7 +129,8 @@
 	"won": 13,
 	"lost": 2,
 	"noContest": 2,
-	"champion": false
+	"weightclass": "Middleweight",
+	"champion": true
 },
 {
 	"ID": 1006,
@@ -145,6 +151,7 @@
 	"won": 28,
 	"lost": 6,
 	"noContest": 0,
+	"weightclass": "Welterweight",
 	"champion": true
 },
 {
@@ -166,6 +173,7 @@
 	"won": 21,
 	"lost": 3,
 	"noContest": 0,
+	"weightclass": "Welterweight",
 	"champion": false
 },
 {
@@ -187,6 +195,7 @@
 	"won": 13,
 	"lost": 4,
 	"noContest": 0,
+	"weightclass": "Lightweight",
 	"champion": true
 },
 {
@@ -208,6 +217,7 @@
 	"won": 10,
 	"lost": 3,
 	"noContest": 0,
+	"weightclass": "Lightweight",
 	"champion": false
 },
 {
@@ -229,6 +239,7 @@
 	"won": 18,
 	"lost": 8,
 	"noContest": 0,
+	"weightclass": "Featherweight",
 	"champion": true
 },
 
@@ -251,6 +262,7 @@
 	"won": 14,
 	"lost": 6,
 	"noContest": 0,
+	"weightclass": "Featherweight",
 	"champion": false
 },
 
@@ -273,6 +285,7 @@
 	"won": 19,
 	"lost": 2,
 	"noContest": 0,
+	"weightclass": "Bantamweight",
 	"champion": true
 },
 
@@ -295,6 +308,7 @@
 	"won": 12,
 	"lost": 4,
 	"noContest": 0,
+	"weightclass": "Bantamweight",
 	"champion": false
 },
 
@@ -317,6 +331,7 @@
 	"won": 15,
 	"lost": 7,
 	"noContest": 0,
+	"weightclass": "Flyweight",
 	"champion": true
 },
 
@@ -339,6 +354,7 @@
 	"won": 11,
 	"lost": 4,
 	"noContest": 0,
+	"weightclass": "Flyweight",
 	"champion": false
 },
 
@@ -361,6 +377,7 @@
 	"won": 12,
 	"lost": 2,
 	"noContest": 0,
+	"weightclass": "Featherweight",
 	"champion": true
 },
 
@@ -383,6 +400,7 @@
 	"won": 4,
 	"lost": 3,
 	"noContest": 0,
+	"weightclass": "Featherweight",
 	"champion": false
 },
 
@@ -405,6 +423,7 @@
 	"won": 14,
 	"lost": 6,
 	"noContest": 0,
+	"weightclass": "Bantamweight",
 	"champion": true
 },
 
@@ -427,6 +446,7 @@
 	"won": 9,
 	"lost": 4,
 	"noContest": 0,
+	"weightclass": "Bantamweight",
 	"champion": false
 },
 
@@ -449,6 +469,7 @@
 	"won": 12,
 	"lost": 2,
 	"noContest": 1,
+	"weightclass": "Flyweight",
 	"champion": true
 },
 
@@ -471,6 +492,7 @@
 	"won": 5,
 	"lost": 7,
 	"noContest": 0,
+	"weightclass": "Flyweight",
 	"champion": false
 },
 
@@ -493,6 +515,7 @@
 	"won": 17,
 	"lost": 3,
 	"noContest": 0,
+	"weightclass": "Strawweight",
 	"champion": true
 },
 
@@ -515,6 +538,7 @@
 	"won": 9,
 	"lost": 9,
 	"noContest": 0,
+	"weightclass": "Strawweight",
 	"champion": false
 }
 ]
