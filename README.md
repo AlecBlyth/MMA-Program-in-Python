@@ -12,6 +12,7 @@ The comments will indicate the changes and new additions to the program based on
 This project was written using Python 3.11 within PhyCharm uses various packages such as:
 
 docopt | Version 0.6.2 
+
 num2words | Version 0.5.12 
 
 This project is a RNG based MMA game that allows a user to create fighters and or select two fighters and based on fighter stats generates a outcome via a probability calculator, higher stat fighters will have greater chances to land moves. 
