@@ -457,7 +457,7 @@
 	"gender": "Female",
 	"nation": "United Kingdom",
 	"fightingOut": "Liverpool",
-	"style": "Liverpool",
+	"style": "Wrestling",
 	"age": 26,
 	"weight": 56,
 	"height": 167,
@@ -514,7 +514,7 @@
 	"subDefence": 80,
 	"won": 17,
 	"lost": 3,
-	"noContest": 0,
+	"noContest": 3,
 	"weightclass": "Strawweight",
 	"champion": true
 },
@@ -537,7 +537,7 @@
 	"subDefence": 50,
 	"won": 9,
 	"lost": 9,
-	"noContest": 0,
+	"noContest": 1,
 	"weightclass": "Strawweight",
 	"champion": false
 }
